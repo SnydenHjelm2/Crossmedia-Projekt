@@ -1,0 +1,89 @@
+@font-face {
+    font-family: rubik-dirt;
+    src: url(fonts/Rubik_Dirt/RubikDirt-Regular.ttf);
+}
+
+@font-face {
+    font-family: rubik-distressed;
+    src: url(fonts/Rubik_Distressed/RubikDistressed-Regular.ttf);
+}
+
+@font-face {
+    font-family: special-elite;
+    src: url(fonts/Special_Elite/SpecialElite-Regular.ttf);
+}
+
+@font-face {
+    font-family: ftg;
+    src: url(fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf);
+}
+
+body {
+    background-image: url(images/stairs.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    margin: 0;
+}
+
+button {
+    padding: 20px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
+    color: black;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#end-msg {
+    display: none;
+}
+
+h1 {
+    font-family: special-elite;
+    margin: 0;
+    color: red;
+    font-size: 50px;
+}
+
+p {
+    font-family: special-elite;
+    color: red;
+    margin: 10px;
+}
+
+#popup {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.8);
+}
+
+#start {
+    background-color: lightgreen;
+}
+
+#stop {
+    background-color: tomato;
+}
+
+#wrapper {
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
