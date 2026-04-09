@@ -1,0 +1,47 @@
+@font-face {
+    font-family: segoe;
+    src: url(fonts/SegoeUIVF.ttf);
+}
+
+body {
+    background-image: url(images/windows-11.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    margin: 0;
+    position: relative;
+}
+
+.cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#lockscreen {
+    color: white;
+    font-family: segoe;
+    text-align: center;
+    padding-top: 175px;
+}
+
+#lockscreen h1 {
+    font-size: 80px;
+}
+
+#lockscreen h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#lockscreen h1, #lockscreen h3 {
+    margin: 0;
+}
+
+#log-in {
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
