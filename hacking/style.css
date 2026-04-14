@@ -19,6 +19,29 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#desktop {
+    background-color: transparent;
+}
+
+#loading {
+    color: white;
+    font-family: segoe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loading img {
+    height: 100px;
+    width: 100px;
+}
+
+#loading h2 {
+    margin: 0;
 }
 
 #lockscreen {
@@ -42,6 +65,53 @@ body {
 }
 
 #log-in {
-    background-color: rgba(0,0,0,0.5);
-    display: none;
+    text-align: center;
+    font-family: segoe;
+}
+
+#log-in a {
+    color: white;
+}
+
+#log-in h2 {
+    color: white;
+    margin: 5px 0px;
+    font-size: 22px;
+}
+
+#log-in p {
+    color: white;
+}
+
+#log-in #pwd {
+    width: 250px;
+    height: 25px;
+    background-color: rgba(8, 52, 245, 0.2);
+    border: none;
+    border-bottom: 3px solid gray;
+    border-radius: 5px;
+    color: white;
+    padding: 0px 10px;
+}
+
+#log-in #pwd:focus {
+    outline: none;
+}
+
+#profile-pic {
+    background-color: lightgray;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+#profile-pic img {
+    height: 60%;
+    width: 60%;
+    object-fit: cover;
 }
