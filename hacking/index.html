@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In...</title>
+    <title>Augusts Dator</title>
+    <script src="d3.v7.min.js"></script>
     <link rel="icon" href="images/microsoft.png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,8 +27,62 @@
         <img src="images/loading.gif">
         <h2>Loggar in...</h2>
     </div>
-    <div class="cover" id="desktop">
-        
+    <div id="desktop">
+        <div id="desktop-icons">
+            <div class="desktop-icon">
+                <img src="images/recycle-bin.png">
+                <p>Papperskorg</p>
+            </div>
+            <div class="desktop-icon clickable">
+                <img src="images/images.png">
+                <p>Bilder</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="images/folder.png">
+                <p>jobb</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="images/teams.png">
+                <p>Teams</p>
+            </div>
+            <div class="desktop-icon clickable">
+                <img src="images/folder.png">
+                <p>bunker</p>
+            </div>
+        </div>
+    </div>
+    <div id="desktop-windows" class="cover">
+        <div id="bilder" class="desktop-window">
+            <div class="top-bar">
+                <div>
+                    <img src="images/images.png">
+                    <p>Bilder</p>
+                </div>
+                <button class="close">X</button>
+            </div>
+            <div class="body">
+                <div class="body-icon">
+                    <img src="images/image.png">
+                    <p>IMG_0359.png</p>
+                </div>
+                <div class="body-icon">
+                    <img src="images/image.png">
+                    <p>IMG_0365.png</p>
+                </div>
+                <div class="body-icon">
+                    <img src="images/image.png">
+                    <p>IMG_0589.png</p>
+                </div>
+                <div class="body-icon">
+                    <img src="images/image.png">
+                    <p>IMG_4390.png</p>
+                </div>
+                <div class="body-icon">
+                    <img src="images/image.png">
+                    <p>IMG_4391.png</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

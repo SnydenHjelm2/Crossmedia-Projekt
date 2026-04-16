@@ -51,7 +51,7 @@ const timer = {
         startB.style.backgroundColor = "";
         stop.disabled = true;
         stop.style.backgroundColor = "gray";
-        document.title = "Klockan tickar...";
+        document.title = "03:00:00 left...";
     },
 
     update: () => {
