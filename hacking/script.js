@@ -52,6 +52,10 @@ const currentPage = {
     page: "",
 };
 
+const desktop = {
+    state: ""
+}
+
 const driver = () => {
     currentPage.page = "lockscreen";
     const h1 = document.querySelector("#lockscreen h1");
@@ -62,13 +66,55 @@ const driver = () => {
     h1.textContent = time.hours + ":" + time.minutes;
     h3.textContent = `${time.weekday} den ${time.date} ${time.month}`;
 
+    document.querySelectorAll(".clickable").forEach((x) => {
+        x.addEventListener("click", () => {
+            document.querySelector("#desktop-windows").style.display = "flex";
+            desktop.state = "one";
+            document.querySelector(`#${x.children[1].textContent.toLowerCase()}`).style.display = "block";
+        })
+    })
+
+    document.querySelectorAll(".close").forEach((x) => {
+        x.addEventListener("click", () => {
+            if (desktop.state === "one") {
+                document.querySelector("#desktop-windows").style.display = "none";
+                desktop.state = "home";
+            }
+            if (desktop.state === "two") {
+                document.querySelector("#image-popup").style.display = "none";
+                desktop.state = "one";
+            }
+            x.parentElement.parentElement.style.display = "none";
+        })
+    });
+
+    document.querySelectorAll(".body-icon").forEach((x) => {
+        let path = "";
+        if (x.parentElement.parentElement.id === "bunker") path += "order-confirmations";
+        if (x.parentElement.parentElement.id === "bilder") path += "olivia";
+        x.addEventListener("click", () => {
+            desktop.state = "two";
+            document.querySelector("#image-popup").style.display = "flex";
+            document.querySelector("#image").style.display = "block";
+            document.querySelector("#image-header").textContent = x.children[1].textContent;
+            document.querySelector("#main-img").src = `images/${path}/${x.children[1].textContent}`;
+        })
+    })
+
     setInterval(clock.updateTime, 1000);
 
     document.querySelector("#log-in").style.display = "none";
     document.querySelector("#loading").style.display = "none";
-    //document.querySelector("#desktop").style.display = "none";
-    document.body.style.backgroundImage = "url(images/city.jpg)";
-    document.querySelector("#lockscreen").style.display = "none";
+    document.querySelector("#desktop").style.display = "none";
+    document.querySelector("#desktop-windows").style.display = "none";
+    document.querySelector("#image-popup").style.display = "none";
+    document.querySelectorAll(".desktop-window").forEach((x) => {
+        x.style.display = "none";
+    });
+    //document.querySelector("#bilder").style.display = "none";
+    //document.querySelector("#bunker").style.display = "none";
+    //document.body.style.backgroundImage = "url(images/city.jpg)";
+    //document.querySelector("#lockscreen").style.display = "none";
 
     window.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -85,6 +131,12 @@ const driver = () => {
             switch (currentPage.page) {
                 case "login":
                     showLockscreen();
+                    break;
+            }
+        } else if (e.key === " ") {
+            switch(currentPage.page) {
+                case "lockscreen":
+                    showLogin();
                     break;
             }
         }
@@ -108,18 +160,20 @@ const logIn = (pwd) => {
             document.querySelector("#loading").style.display = "none";
             document.querySelector("#log-in #status").textContent = "Fel lösenord, försök igen";
             document.querySelector("#log-in #pwd").value = "";
-        }, 3000);
+            document.querySelector("#log-in #pwd").focus();
+        }, 1000);
     } else {
         setTimeout(() => {
             document.querySelector("#loading h2").textContent = "Välkommen August!";
             setTimeout(() => {
+                desktop.state = "home";
                 document.querySelector("#desktop").style.display = "block";
                 d3.select("#desktop").transition().duration(300).style("opacity", 1);
                 document.querySelector("#loading").style.display = "none";
                 document.body.style.backgroundImage = "url(images/city.jpg)";
                 currentPage.page = "desktop";
-            }, 1500);
-        }, 4000);
+            }, 1000);
+        }, 1000);
     }
 }
 
@@ -128,6 +182,7 @@ const showLogin = () => {
     document.querySelector("#log-in").style.display = "block";
     d3.select("#log-in").transition().duration(300).style("opacity", "1");
     document.querySelector("#log-in #pwd").focus();
+    document.querySelector("#log-in #pwd").value = "";
     currentPage.page = "login";
 }
 

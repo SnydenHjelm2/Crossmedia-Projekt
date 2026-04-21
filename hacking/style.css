@@ -77,13 +77,17 @@ body {
 .desktop-window .body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 10px 0px;
+    padding-top: 30px;
     gap: 10px;
 }
 
 .desktop-window .body .body-icon {
     justify-self: center;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
 }
 
 .desktop-window .body .body-icon:hover {
@@ -143,6 +147,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#image {
+    height: 600px;
+}
+
+#image-popup {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#image-popup div #main-img {
+    height: 90%;
+    width: 100%;
+    object-fit: contain;
 }
 
 #loading {
