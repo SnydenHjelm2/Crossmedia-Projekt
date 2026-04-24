@@ -11,6 +11,26 @@ const req = {
 }
 
 const timer = {
+    convert: (ms) => {
+        const seconds = Math.floor(ms / 1000) % 60;
+        const minutes = Math.floor(ms / (1000 * 60)) % 60;
+        const hours = Math.floor(ms / (1000 * 60 * 60));
+
+        if (seconds < 10 && minutes < 10) {
+            timer.h1.textContent = `0${hours}:0${minutes}:0${seconds}`;
+            document.title = `0${hours}:0${minutes}:0${seconds} left...`;
+        } else if (minutes < 10) {
+            timer.h1.textContent = `0${hours}:0${minutes}:${seconds}`;
+            document.title = `0${hours}:0${minutes}:${seconds} left...`;
+        } else if (seconds < 10) {
+            timer.h1.textContent = `0${hours}:${minutes}:0${seconds}`;
+            document.title = `0${hours}:${minutes}:0${seconds} left...`;
+        } else {
+            timer.h1.textContent = `0${hours}:${minutes}:${seconds}`;
+            document.title = `0${hours}:${minutes}:${seconds} left...`;
+        }
+    },
+
     elapsed: () => {
         return Date.now() - timer.startTime;
     },
@@ -18,11 +38,13 @@ const timer = {
     h1: document.querySelector("h1"),
 
     initiate: async () => {
+        let started = await req.send("started", "GET");
+        if (!started) timer.start();
         let reso = await req.send("time", "GET");
-        if (typeof reso !== "string") return "Timer not started";
         timer.startTime = parseInt(reso);
         timer.update();
         timer.interval = setInterval(timer.update, 1000);
+        timer.p.textContent = "Klockan tickar...";
         return true;
     },
 
@@ -60,31 +82,14 @@ const timer = {
         if (!timer.startTime) return "Timer not started!";
 
         let elapsed = timer.elapsed();
-        let timeLeft = 10000 - elapsed;
+        let timeLeft = 10800000 - elapsed;
         if (timeLeft <= 0) {
             await timer.stop("finished");
             return;
         }
 
-        const seconds = Math.floor(timeLeft / 1000) % 60;
-        const minutes = Math.floor(timeLeft / (1000 * 60)) % 60;
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-
-        if (seconds < 10 && minutes < 10) {
-            timer.h1.textContent = `0${hours}:0${minutes}:0${seconds}`;
-            document.title = `0${hours}:0${minutes}:0${seconds} left...`;
-        } else if (minutes < 10) {
-            timer.h1.textContent = `0${hours}:0${minutes}:${seconds}`;
-            document.title = `0${hours}:0${minutes}:${seconds} left...`;
-        } else if (seconds < 10) {
-            timer.h1.textContent = `0${hours}:${minutes}:0${seconds}`;
-            document.title = `0${hours}:${minutes}:0${seconds} left...`;
-        } else {
-            timer.h1.textContent = `0${hours}:${minutes}:${seconds}`;
-            document.title = `0${hours}:${minutes}:${seconds} left...`;
-        }
+        timer.convert(timeLeft);
     }
 }
 
-//timer.start();
-timer.initiate();
+//timer.initiate();

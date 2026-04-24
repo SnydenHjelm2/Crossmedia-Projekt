@@ -21,6 +21,9 @@ const handler = async (req) => {
                 if (!db.started) return createResp({error: "Timer not started"}, headersOBJ, 400);
 
                 return createResp(db.startTime, headersOBJ, 200);
+            } else if (url.pathname === "/started") {
+                let db = JSON.parse(Deno.readTextFileSync("../db/timer.json"));
+                return createResp(db.started, headersOBJ, 200);
             }
         }
 
