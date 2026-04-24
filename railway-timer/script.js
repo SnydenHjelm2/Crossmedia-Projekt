@@ -37,19 +37,18 @@ const timer = {
         });
         if (reso.error) return "Timer already started!";
         await timer.initiate();
-        timer.interval = setInterval(timer.update, 1000);
         return "Timer started!";
     },
 
     startTime: null,
 
     stop: async (type) => {
-        let reso = await req.send("reset", "DELETE");
         clearInterval(timer.interval);
+        let reso = await req.send("reset", "DELETE");
         if (type === "finished") {
-            clearInterval(timer.interval);
             timer.h1.textContent = "00:00:00";
             timer.p.innerHTML = "Tiden är inne, det ska bli vi igen...<br>Tack för att ni spelade!";
+            return;
         }
         timer.h1.textContent = "03:00:00";
         timer.p.textContent = "...";
@@ -57,13 +56,13 @@ const timer = {
         return "Timer stopped!";
     },
 
-    update: () => {
+    update: async () => {
         if (!timer.startTime) return "Timer not started!";
 
         let elapsed = timer.elapsed();
-        let timeLeft = 10800000 - elapsed;
+        let timeLeft = 10000 - elapsed;
         if (timeLeft <= 0) {
-            timer.stop("finished");
+            await timer.stop("finished");
             return;
         }
 
