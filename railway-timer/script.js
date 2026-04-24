@@ -39,7 +39,7 @@ const timer = {
 
     initiate: async () => {
         let started = await req.send("started", "GET");
-        if (!started) timer.start();
+        if (!started) await timer.start();
         let reso = await req.send("time", "GET");
         timer.startTime = parseInt(reso);
         timer.update();
@@ -58,7 +58,6 @@ const timer = {
             time: now.toString()
         });
         if (reso.error) return "Timer already started!";
-        await timer.initiate();
         return "Timer started!";
     },
 
