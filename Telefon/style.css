@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+}
+
+.phone {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 55px;
+}
+input {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-size: 32px;
+    text-align: center;
+}
+.key {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    font-size: 26px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(232, 232, 232);
+    border: none;
+    color: black;
+}
+#call {
+    background-color: limegreen;
+    color: white;
+}

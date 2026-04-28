@@ -41,8 +41,8 @@
         }
         input:focus {
             outline: none;
-            border-color: #ccc; /* Behåll samma färg som standardgränsen */
-            box-shadow: none; /* Ta bort eventuell skugga */
+            border-color: #ccc; 
+            box-shadow: none; 
         }
         #inputsDiv {
             display: flex;
@@ -58,39 +58,41 @@
             color: white;
         }
         
+        
         @media (max-width: 768px) {
             input {
-                width: 40px; /* Minska storleken på input-fälten */
+                width: 40px; 
                 height: 40px;
                 font-size: 1.2rem;
                 margin: 5px;
             }
             h2 {
-                font-size: 1rem; /* Minska textstorleken ytterligare */
+                font-size: 1rem; 
             }
             h3 {
-                font-size: 0.9rem; /* Anpassa textstorleken */
+                font-size: 0.9rem; 
             }
             #wrapper {
-                gap: 10px; /* Minska avståndet mellan elementen */
+                gap: 10px; 
             }
         }
 
     @media (max-width: 480px) {
         input {
-            width: 35px; /* Ännu mindre input-fält för små skärmar */
+            width: 35px; 
             height: 35px;
             font-size: 1.2rem;
         }
         h2 {
-            font-size: 0.9rem; /* Anpassa textstorleken för små skärmar */
+            font-size: 0.9rem; 
         }
         h3 {
             font-size: 0.8rem;
         }
         #wrapper {
-            gap: 10px; /* Minska avståndet ytterligare */
+            gap: 10px; 
         }
+        
     }
     </style>
 
@@ -138,45 +140,39 @@
                     guess.push(input.value);
                 });
     
-                // Reset input styles
                 inputs.forEach(input => {
                     if (input.style.backgroundColor !== "green") {
-                        input.style.backgroundColor = ""; // Reset background color
+                        input.style.backgroundColor = ""; 
                     }
                 });
     
-                // Check the guess
                 let correctCount = 0;
-                const usedIndices = []; // To track which letters have been matched
+                const usedIndices = []; 
     
-                // First pass: Check for correct letters in the correct position
                 guess.forEach((letter, index) => {
                     if (letter === correctAnswer[index]) {
                         inputs[index].style.backgroundColor = "green";
-                        inputs[index].disabled = true; // Disable the input
+                        inputs[index].disabled = true; 
                         correctCount++;
-                        usedIndices.push(index); // Mark this index as used
+                        usedIndices.push(index); 
                     }
                 });
     
-                // Second pass: Check for correct letters in the wrong position
                 guess.forEach((letter, index) => {
                     if (
-                        letter !== correctAnswer[index] && // Not already green
-                        correctAnswer.includes(letter) && // Letter exists in the word
-                        !usedIndices.includes(correctAnswer.indexOf(letter)) // Not already used
+                        letter !== correctAnswer[index] && 
+                        correctAnswer.includes(letter) && 
+                        !usedIndices.includes(correctAnswer.indexOf(letter)) 
                     ) {
                         inputs[index].style.backgroundColor = "orange";
-                        usedIndices.push(correctAnswer.indexOf(letter)); // Mark this index as used
+                        usedIndices.push(correctAnswer.indexOf(letter)); 
                     }
                 });
     
-                // Check if the user has guessed the correct word
                 if (correctCount === correctAnswer.length) {
-                    let wrapper = document.getElementById("wrapper")
-                    wrapper.innerHTML = `<h1>JUMP SCARE</h1>`
-                    wrapper.style.fontSize = "200px"
-                    wrapper.style.color = "red"
+                    let h3 = document.querySelector("h3");
+                    h3.textContent = `FOTBOLL är lösenordet`
+                    wrapper.style.color = "green"
 
                 }
             }
