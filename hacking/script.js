@@ -1,10 +1,19 @@
 const clock = {
-    getTime: () => {
+    getTime: (desktop) => {
         let now = new Date();
         let time = now.toLocaleTimeString("sv-SE");
         let date = now.toLocaleDateString("sv-SE");
         let weekday = now.toLocaleDateString("sv-SE", {weekday: "long"});
         let month = now.toLocaleDateString("sv-SE", {month: "long"});
+
+        if (desktop) {
+            return {
+                hours: time.split(":")[0],
+                minutes: time.split(":")[1],
+                date: date
+            }
+        }
+
         return {
             hours: time.split(":")[0],
             minutes: time.split(":")[1],
@@ -53,7 +62,13 @@ const currentPage = {
 };
 
 const desktop = {
-    state: ""
+    state: "",
+
+    update: () => {
+        let time = clock.getTime("desktop");
+        document.querySelector("#time").textContent = `${time.hours}:${time.minutes}`;
+        document.querySelector("#date").textContent = time.date;
+    }
 }
 
 const driver = () => {
@@ -70,7 +85,8 @@ const driver = () => {
         x.addEventListener("click", () => {
             document.querySelector("#desktop-windows").style.display = "flex";
             desktop.state = "one";
-            document.querySelector(`#${x.children[1].textContent.toLowerCase()}`).style.display = "block";
+            document.querySelector(`#${x.children[1].textContent.toLowerCase()}`).style.display = "flex";
+            document.querySelector("#file-explorer").classList.add("active");
         })
     })
 
@@ -78,20 +94,21 @@ const driver = () => {
         x.addEventListener("click", () => {
             if (desktop.state === "one") {
                 document.querySelector("#desktop-windows").style.display = "none";
+                document.querySelector("#file-explorer").classList.remove("active");
                 desktop.state = "home";
             }
             if (desktop.state === "two") {
                 document.querySelector("#image-popup").style.display = "none";
                 desktop.state = "one";
             }
-            x.parentElement.parentElement.style.display = "none";
         })
     });
 
     document.querySelectorAll(".body-icon").forEach((x) => {
         let path = "";
-        if (x.parentElement.parentElement.id === "bunker") path += "order-confirmations";
-        if (x.parentElement.parentElement.id === "bilder") path += "olivia";
+        if (x.classList.contains("olivia")) path = "olivia";
+        else if (x.classList.contains("order")) path = "order-confirmations";
+        else if (x.classList.contains("blueprint")) path = "blueprints";
         x.addEventListener("click", () => {
             desktop.state = "two";
             document.querySelector("#image-popup").style.display = "flex";
@@ -105,16 +122,15 @@ const driver = () => {
 
     document.querySelector("#log-in").style.display = "none";
     document.querySelector("#loading").style.display = "none";
-    document.querySelector("#desktop").style.display = "none";
-    document.querySelector("#desktop-windows").style.display = "none";
     document.querySelector("#image-popup").style.display = "none";
+    document.querySelector("#desktop-windows").style.display = "none";
+    document.querySelector("#desktop").style.display = "none";
     document.querySelectorAll(".desktop-window").forEach((x) => {
         x.style.display = "none";
     });
-    //document.querySelector("#bilder").style.display = "none";
-    //document.querySelector("#bunker").style.display = "none";
-    //document.body.style.backgroundImage = "url(images/city.jpg)";
-    //document.querySelector("#lockscreen").style.display = "none";
+    // document.querySelector("#papperskorg").style.display = "none";
+    // document.body.style.backgroundImage = "url(images/city.jpg)";
+    // document.querySelector("#lockscreen").style.display = "none";
 
     window.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -161,7 +177,7 @@ const logIn = (pwd) => {
             document.querySelector("#log-in #status").textContent = "Fel lösenord, försök igen";
             document.querySelector("#log-in #pwd").value = "";
             document.querySelector("#log-in #pwd").focus();
-        }, 1000);
+        }, 3000);
     } else {
         setTimeout(() => {
             document.querySelector("#loading h2").textContent = "Välkommen August!";
@@ -172,8 +188,10 @@ const logIn = (pwd) => {
                 document.querySelector("#loading").style.display = "none";
                 document.body.style.backgroundImage = "url(images/city.jpg)";
                 currentPage.page = "desktop";
+                desktop.update();
+                setInterval(desktop.update, 1000);
             }, 1000);
-        }, 1000);
+        }, 4000);
     }
 }
 
