@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <style>
+    </style>
+</head>
+<body>
+   <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Courier New", monospace;
+        }
+        p {
+            font-size: 18px;
+            color: #00ff00;
+        }
+        #terminal {
+            display: flex;
+            flex-direction: column;
+            height: 100dvh;
+            width: 100%;
+        }
+        #logsCont {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            flex: 9;
+            background-color: black;
+            overflow-y: scroll;
+        }
+
+        #inputCont {
+            flex: 1;
+            border-top: 1px solid rgb(36, 36, 36);
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+            padding-left: 10px;
+            background-color: black;
+            color: #00ff00;
+            border: none;
+            caret-color: #00ff00;
+            border-radius: none;
+            
+        }
+        input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        notis-comp {
+            display: none;
+        }
+     
+   </style>
+
+   <notis-comp></notis-comp>
+   <div id="terminal">
+        <div id="logsCont">
+            <p>Welcome to the terminal, tools ready [decode, clear, help]</p>
+        </div>
+        <div id="inputCont">
+            <input placeholder="agust@ ~ %desktop/termianl$ " type="text" name="" id="">
+        </div>
+   </div>
+
+   <script src="notisPopUp/notisPopUp.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>
