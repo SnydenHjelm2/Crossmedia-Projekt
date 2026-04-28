@@ -1,0 +1,65 @@
+:root {
+    --heading-font: 'Arial', serif;
+    --body-font: 'Arial', sans-serif;
+    --heading-color: #333333;
+    --body-color: #555555;
+}
+body {
+    margin: 0;
+}
+  
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    margin-bottom: 0.5em;
+}
+article {
+    font-family: var(--body-font);
+    color: var(--body-color);
+    line-height: 1.6;
+    margin: 0;
+}
+#content {
+    padding: 0 35px;
+}
+
+header {
+    color: white;
+    background-color: #ca2c2c;
+    display: flex;
+    padding: 10px 35px;
+    justify-content: space-between;
+
+}
+#aftonblaskan {
+    width: 180px;
+}
+
+#author {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+}
+#authorPic {
+    width: 60px;
+}
+#picOlivia {
+    width: 40%;
+}
+#picInfo {
+    margin:0;
+    font-style: italic;
+    
+}
+footer {
+    padding: 10px;
+    background-color: #ca2c2c;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Dynamiska kolumner */
+}
+footer p {
+    color: white;
+    font-size: 12px;
+}

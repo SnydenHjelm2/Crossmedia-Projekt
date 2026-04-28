@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lösenord</title>
+</head>
+<body>
+    <style>
+        * {
+            font-family:'Courier New', Courier, monospace;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        main {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(old-grunge-black-gray-background.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 100dvh;
+        }
+        #wrapper { 
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 25px;
+            padding: 20px;
+        }
+        input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            color: black;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ccc; 
+            box-shadow: none; 
+        }
+        #inputsDiv {
+            display: flex;
+            flex-direction: row;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+            width: 75%;
+            line-height: 200%;
+        }
+        h3 {
+            color: white;
+        }
+        
+        
+        @media (max-width: 768px) {
+            input {
+                width: 40px; 
+                height: 40px;
+                font-size: 1.2rem;
+                margin: 5px;
+            }
+            h2 {
+                font-size: 1rem; 
+            }
+            h3 {
+                font-size: 0.9rem; 
+            }
+            #wrapper {
+                gap: 10px; 
+            }
+        }
+
+    @media (max-width: 480px) {
+        input {
+            width: 35px; 
+            height: 35px;
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-size: 0.9rem; 
+        }
+        h3 {
+            font-size: 0.8rem;
+        }
+        #wrapper {
+            gap: 10px; 
+        }
+        
+    }
+    </style>
+
+    <main>
+        <div id="wrapper">
+            <h2>Få saker kändes lika kontrollerbara. Oavsett hur långt det rörde sig. Trots friheten fanns alltid gränser. Bara riktning avgjorde utfallet. Och varje steg räknades. Ljudet av rörelse ekade i honom. Lämnade inget åt slumpen.</h3>
+            <div id="inputsDiv">
+                <input type="text" maxlength="1" id="input1">
+                <input type="text" maxlength="1" id="input2">
+                <input type="text" maxlength="1" id="input3">
+                <input type="text" maxlength="1" id="input4">
+                <input type="text" maxlength="1" id="input5">
+                <input type="text" maxlength="1" id="input6">
+                <input type="text" maxlength="1" id="input7">
+            </div>
+            <h3>Klicka enter för kontroll</h3>
+            
+            
+        </div>
+    </main>
+    
+    <script>
+        const correctAnswer = ["F", "O", "T", "B", "O", "L", "L"];
+        const inputs = document.querySelectorAll('input');
+        
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                input.value = e.target.value.toUpperCase();
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+    
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    
+        document.querySelector("body").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                let guess = [];
+                inputs.forEach(input => {
+                    guess.push(input.value);
+                });
+    
+                inputs.forEach(input => {
+                    if (input.style.backgroundColor !== "green") {
+                        input.style.backgroundColor = ""; 
+                    }
+                });
+    
+                let correctCount = 0;
+                const usedIndices = []; 
+    
+                guess.forEach((letter, index) => {
+                    if (letter === correctAnswer[index]) {
+                        inputs[index].style.backgroundColor = "green";
+                        inputs[index].disabled = true; 
+                        correctCount++;
+                        usedIndices.push(index); 
+                    }
+                });
+    
+                guess.forEach((letter, index) => {
+                    if (
+                        letter !== correctAnswer[index] && 
+                        correctAnswer.includes(letter) && 
+                        !usedIndices.includes(correctAnswer.indexOf(letter)) 
+                    ) {
+                        inputs[index].style.backgroundColor = "orange";
+                        usedIndices.push(correctAnswer.indexOf(letter)); 
+                    }
+                });
+    
+                if (correctCount === correctAnswer.length) {
+                    let h3 = document.querySelector("h3");
+                    h3.textContent = `FOTBOLL är lösenordet`
+                    wrapper.style.color = "green"
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
