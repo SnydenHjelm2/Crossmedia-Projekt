@@ -92,6 +92,13 @@ body.addEventListener("keydown", function(e) {
 
                 document.querySelector("notis-comp").style.display = "block";
 
+            } else if (text === "138169132") {
+                p.innerHTML = `<p>Correct number combination. You will be redirected shortly...</p>`;
+                div.appendChild(p);
+
+                setTimeout(() => {
+                    window.location.href = "https://webshare.mah.se/aq0991/kartlaggning";
+                }, 5000);
             } else {
                 p.innerHTML = `<p>Could not decode the message</p>`
 
