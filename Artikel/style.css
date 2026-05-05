@@ -18,6 +18,7 @@ article {
     color: var(--body-color);
     line-height: 1.6;
     margin: 0;
+    opacity:0.02;
 }
 #content {
     padding: 0 35px;
@@ -29,6 +30,8 @@ header {
     display: flex;
     padding: 10px 35px;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
 
 }
 #aftonblaskan {
@@ -38,7 +41,6 @@ header {
 #author {
     display: flex;
     align-items: center;
-    padding-top: 20px;
     gap: 10px;
 }
 #authorPic {
@@ -63,3 +65,45 @@ footer p {
     color: white;
     font-size: 12px;
 }
+span {
+    font-family: monospace;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Justera för att centrera exakt */
+    background-color: lightgrey;
+    padding: 25px;
+    text-align: left;
+    width: 330px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Valfri skugga */
+    border-radius: 10px; /* Valfri rundning av hörn */
+    text-align: center;
+
+
+}
+span h2 {
+    margin: 0;
+}
+span button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: monospace;
+
+}
+.importantMess {
+    color: red;
+}
+a {
+    color: red;
+    font-size: 18px;
+}
+.goToV {
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.goTo {
+    font-weight: bold;
+    font-size: 11px;
+}
+

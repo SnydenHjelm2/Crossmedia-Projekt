@@ -17,7 +17,7 @@ body.addEventListener("keydown", function(e) {
 
         if (command === "decode") {
             if (text === "Iakttagen") {
-                const sound = new Audio(`Station 2.mp3`); 
+                const sound = new Audio(`Station2MP3.mp3`); 
                 sound.currentTime = 0;
                 sound.play(); 
 
@@ -50,8 +50,8 @@ body.addEventListener("keydown", function(e) {
                 
                 
             } else if(text === "Nå mig via telefon") {
-                let countdown = 25; 
-                p.innerHTML = `<p>RING MIG: #1 <br></br> Du kommer att transporteras till telefonen om <span id="timer">${countdown}</span> sekunder...</p>`;
+                let countdown = 15; 
+                p.innerHTML = `<p>RING MIG: 0738151380 <br></br> Du kommer att transporteras till telefonen om <span id="timer">${countdown}</span> sekunder...</p>`;
                 div.appendChild(p);
                 logsCont.appendChild(div);
 
@@ -66,9 +66,18 @@ body.addEventListener("keydown", function(e) {
         
                 setTimeout(() => {
                     window.location.href = "https://webshare.mah.se/aq2168/telefon/";
-                }, 25000);
+                }, 15000);
 
             } else if(text === "Återställ") {
+                let req = new Request("https://railway-timer-production.up.railway.app/reset", {
+                    headers: {"Content-type": "application/json"},
+                    method: "DELETE",
+                    
+                    body: JSON.stringify({
+                    }) 
+                });
+                fetch(req).then(resp => resp.json()).then(reso => console.log(reso));
+
                 document.querySelector("notis-comp").style.display = "block";
 
             } else {
