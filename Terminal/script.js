@@ -54,6 +54,10 @@ body.addEventListener("keydown", function(e) {
                 
                 
             } else if(text === "Nå mig via telefon") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+                });
                 let countdown = 15; 
                 p.innerHTML = `<p>RING MIG: 0738151380 <br></br> Du kommer att transporteras till telefonen om <span id="timer">${countdown}</span> sekunder...</p>`;
                 div.appendChild(p);
@@ -73,6 +77,10 @@ body.addEventListener("keydown", function(e) {
                 }, 15000);
 
             } else if(text === "Återställ") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+                });
                 let req = new Request("https://railway-timer-production.up.railway.app/reset", {
                     headers: {"Content-type": "application/json"},
                     method: "DELETE",
@@ -89,14 +97,26 @@ body.addEventListener("keydown", function(e) {
 
             }
         } else if (command === "help") {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+            });
             p.innerHTML = `help:<br>
                 - decode: message -> Decodes the given message.<br>
                 - clear -> Clears the terminal logs.<br>
                 - help -> Displays this help message.`;
         } else if (command === "clear") {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+            });
             logsCont.innerHTML = "";
             p.textContent = "Welcome to the terminal, tools ready [decode, clear, help]";
         } else {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+            });
             p.textContent = `Command not found: ${input.value}`;
         }
 
