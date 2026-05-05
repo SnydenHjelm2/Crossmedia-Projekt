@@ -238,7 +238,11 @@ body {
     color: white;
     font-family: segoe;
     text-align: center;
-    padding-top: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
 }
 
 #lockscreen h1 {
@@ -258,6 +262,10 @@ body {
     text-align: center;
     font-family: segoe;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #log-in a {

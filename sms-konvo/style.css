@@ -1,0 +1,14 @@
+body {
+    height: 100dvh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    display: block;
+    box-sizing: border-box;
+    object-fit: contain;
+    height: 100%;
+    width: 90%;
+}

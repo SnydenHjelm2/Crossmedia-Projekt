@@ -197,7 +197,7 @@ const logIn = (pwd) => {
 
 const showLogin = () => {
     document.querySelector("#lockscreen").style.display = "none";
-    document.querySelector("#log-in").style.display = "block";
+    document.querySelector("#log-in").style.display = "flex";
     d3.select("#log-in").transition().duration(300).style("opacity", "1");
     document.querySelector("#log-in #pwd").focus();
     document.querySelector("#log-in #pwd").value = "";
@@ -207,7 +207,7 @@ const showLogin = () => {
 const showLockscreen = () => {
     document.querySelector("#log-in").style.display = "none";
     document.querySelector("#log-in").style.opacity = "0";
-    document.querySelector("#lockscreen").style.display = "block";
+    document.querySelector("#lockscreen").style.display = "flex";
     currentPage.page = "lockscreen";
 }
 
