@@ -17,6 +17,10 @@ body.addEventListener("keydown", function(e) {
 
         if (command === "decode") {
             if (text === "Iakttagen") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gör scrollningen mjuk (valfritt)
+                });
                 const sound = new Audio(`Station2MP3.mp3`); 
                 sound.currentTime = 0;
                 sound.play(); 
