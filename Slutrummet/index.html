@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Det ska bli vi igen....</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="overlay">
+        <h1>Som ni nu förstått har ni hittills tagit er igenom Augusts tankar och planer inför kidnappningen. 
+        <br>Ni har en chans att stoppa honom, men när klockan slår 00:00 är det försent. 
+        <br>Ni måste nu hitta stoppknappen och lösa uppgiften.</h1>
+
+        <a target="_blank" href="https://railway-timer-production.up.railway.app">Se er tid <img src="new-tab.png"></a>
+    </div>
+    <script src="d3.v7.min.js"></script>
     <script>
-        
+        d3.select("a")
+            .on("mouseover", () => {
+                d3.select("a")
+                    .transition()
+                    .duration(500)
+                    .style("background-color", "#b70000")
+                    .style("transform", "scale(1.1)");
+            })
+            .on("mouseleave", () => {
+                d3.select("a")
+                    .transition()
+                    .duration(500)
+                    .style("background-color", "red")
+                    .style("transform", "scale(1)");
+            });
     </script>
 </body>
 </html>

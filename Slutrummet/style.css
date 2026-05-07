@@ -1,0 +1,51 @@
+@font-face {
+    font-family: special;
+    src: url(SpecialElite-Regular.ttf);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+body {
+    height: 100dvh;
+    margin: 0;
+    background-image: url(bunker-doors.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: special;
+    color: red;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+img {
+    height: 20px;
+}
+
+#overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
