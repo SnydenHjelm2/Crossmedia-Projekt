@@ -21,11 +21,11 @@ body.addEventListener("keydown", function(e) {
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
                 });
-                const sound = new Audio(`Sequence01.mp3`); 
+                const sound = new Audio(`Sequence01_1.mp3`); 
                 sound.currentTime = 0;
                 sound.play(); 
 
-                let remainingTime = 106; // Total tid i sekunder (1:46 = 106 sekunder)
+                let remainingTime = 78; 
 
                 // Starta nedräkningen
                 const countdownInterval = setInterval(() => {
@@ -39,8 +39,8 @@ body.addEventListener("keydown", function(e) {
                     p.innerHTML = `<p>Spelar upp ljud: ${minutes}:${seconds.toString().padStart(2, '0')}</p>`;
 
                     // Stoppa nedräkningen när tiden är slut
-                    if (remainingTime <= 105) {
-                        p.innerHTML = `<p>Fotografera sida 7, 13, 23, 30 <br></br> Hitta nycklen <br></br>?</p>`;
+                    if (remainingTime <= 10) {
+                        p.innerHTML = `<p>Fotografera sida 7, 13, 23, 30 <br></br> Hitta nycklen <br></br>55° 36' 24.084"N 12° 59' 37.1034"E</p>`;
                     } else if(remainingTime === 0) {
                         clearInterval(countdownInterval);
                     }
@@ -49,7 +49,7 @@ body.addEventListener("keydown", function(e) {
                 // Stoppa nedräkningen och visa meddelande när ljudet är klart
                 setTimeout(() => {
                     p.innerHTML = `<p>Ljudet är klart!</p>`;
-                }, 102000); // 102 sekunder = 1:42
+                }, 106000); 
 
                 
                 
@@ -58,8 +58,8 @@ body.addEventListener("keydown", function(e) {
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
                 });
-                let countdown = 15; 
-                p.innerHTML = `<p>RING MIG: 0738151380 <br></br> Du kommer att transporteras till telefonen om <span id="timer">${countdown}</span> sekunder...</p>`;
+                let countdown = 20; 
+                p.innerHTML = `<p>RING MIG: 0769152350 <br></br> Du kommer att transporteras till telefonen om <span id="timer">${countdown}</span> sekunder...</p>`;
                 div.appendChild(p);
                 logsCont.appendChild(div);
 
@@ -74,7 +74,7 @@ body.addEventListener("keydown", function(e) {
         
                 setTimeout(() => {
                     window.location.href = "https://webshare.mah.se/aq2168/telefon/";
-                }, 15000);
+                }, 20000);
 
             } else if(text === "återställ") {
                 window.scrollTo({

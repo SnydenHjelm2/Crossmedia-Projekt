@@ -26,7 +26,7 @@ backButton.addEventListener('click', () => {
 
 });
 callButton.addEventListener("click", () => {
-    if(phoneNumberInput.value === "0738151380") {
+    if(phoneNumberInput.value === "0769152350") {
         phoneNumberInput.value = "Röstbrevlåda";
         callSound.play(); 
     } 
