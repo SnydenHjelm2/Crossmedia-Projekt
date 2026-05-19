@@ -106,15 +106,15 @@ const driver = () => {
 
     document.querySelectorAll(".body-icon").forEach((x) => {
         let path = "";
-        if (x.classList.contains("olivia")) path = "olivia";
-        else if (x.classList.contains("order")) path = "order-confirmations";
-        else if (x.classList.contains("blueprint")) path = "blueprints";
+        if (x.classList.contains("olivia")) path = "olivia/";
+        else if (x.classList.contains("order")) path = "order-confirmations/";
+        else if (x.classList.contains("blueprint")) path = "blueprints/";
         x.addEventListener("click", () => {
             desktop.state = "two";
             document.querySelector("#image-popup").style.display = "flex";
             document.querySelector("#image").style.display = "block";
             document.querySelector("#image-header").textContent = x.children[1].textContent;
-            document.querySelector("#main-img").src = `images/${path}/${x.children[1].textContent}`;
+            document.querySelector("#main-img").src = `images/${path}${x.children[1].textContent}`;
         })
     })
 

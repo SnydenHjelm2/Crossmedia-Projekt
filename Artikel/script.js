@@ -7,22 +7,14 @@ let formattedDate = `${year}-${month}-${day}`; // Formaterar till xxxx-xx-xx
 
 
 let btn = document.querySelector("button");
-let span = document.querySelector("span");
-let article = document.querySelector("article");
-btn.addEventListener("click", function() {
-    article.style.opacity = "1";
-    span.style.display = "none";
+btn.addEventListener("click", async function() {
 
     let req = new Request("https://railway-timer-production.up.railway.app/start", {
         headers: {"Content-type": "application/json"},
-        method: "POST",
-        
-        body: JSON.stringify({
-            
-    
-        })
-        
+        method: "POST"
     });
     
-    fetch(req).then(resp => resp.json()).then(reso => console.log(reso));
+    await fetch(req).then(resp => resp.json()).then(reso => console.log(reso));
+
+    window.location.href = "https://railway-timer-production.up.railway.app/";
 })
