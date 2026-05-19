@@ -57,6 +57,14 @@
         h3 {
             color: white;
         }
+        .intro {
+            color: white;
+        }
+        #back {
+            width: 100%;
+            color: white;
+            text-align: left;
+        }
         
         
         @media (max-width: 768px) {
@@ -71,6 +79,7 @@
             }
             h3 {
                 font-size: 0.9rem; 
+                color: white;
             }
             #wrapper {
                 gap: 10px; 
@@ -88,6 +97,7 @@
         }
         h3 {
             font-size: 0.8rem;
+            color: white;
         }
         #wrapper {
             gap: 10px; 
@@ -98,7 +108,8 @@
 
     <main>
         <div id="wrapper">
-            <h2>Få saker kändes lika kontrollerbara. Oavsett hur långt det rörde sig. Trots friheten fanns alltid gränser. Bara riktning avgjorde utfallet. Och varje steg räknades. Ljudet av rörelse ekade i honom. Lämnade inget åt slumpen.</h3>
+            <h2 id="back">Tillbaka till desktop</h2>
+            <h3>Få saker kändes lika kontrollerbara. <br></br> Oavsett hur långt det rörde sig. Trots friheten fanns alltid gränser.<br></br> Bara riktning avgjorde utfallet. <br></br> Och varje steg räknades. <br></br> Ljudet av rörelse ekade i honom.<br></br>Lämnade inget åt slumpen.</h3>
             <div id="inputsDiv">
                 <input type="text" maxlength="1" id="input1">
                 <input type="text" maxlength="1" id="input2">
@@ -108,13 +119,17 @@
                 <input type="text" maxlength="1" id="input6">
                 <input type="text" maxlength="1" id="input7">
             </div>
-            <h3>Klicka enter för kontroll</h3>
-            
-            
+            <h3>Klicka enter för kontroll(Oändliga många försök)</h3>
+            <p class="intro">Ni har oändligt med försök. <br></br> Orange färg betyder att bokstaven är med i lösenordet men på fel plats.<br></br> Grön färg betyder att bokstaven är på rätt plats. <br></br> Om ni är tillräckligt uppmärksamma kan ni se lösenordet i texten ovan.</p>
         </div>
     </main>
     
     <script>
+        let backBtn = document.getElementById("back");
+
+        backBtn.addEventListener("click", function() {
+            window.location.href = "https://webshare.mah.se/aq0991/ "
+        })
         const correctAnswer = ["F", "O", "T", "B", "O", "L", "L"];
         const inputs = document.querySelectorAll('input');
         

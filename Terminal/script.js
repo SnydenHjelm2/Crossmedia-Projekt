@@ -7,7 +7,7 @@ body.addEventListener("keydown", function(e) {
         let inputValue = input.value.trim(); 
         let inputParts = inputValue.split(":"); 
         let command = inputParts[0].trim(); 
-        let text = inputParts[1] ? inputParts[1].trim() : undefined; 
+        let text = inputParts[1] ? inputParts[1].trim().toLowerCase() : undefined; 
 
         console.log(command);
         console.log(text);
@@ -16,16 +16,16 @@ body.addEventListener("keydown", function(e) {
         let p = document.createElement("p");
 
         if (command === "decode") {
-            if (text === "Iakttagen") {
+            if (text === "iakttagen") {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
                 });
-                const sound = new Audio(`Station2MP3.mp3`); 
+                const sound = new Audio(`Sequence01.mp3`); 
                 sound.currentTime = 0;
                 sound.play(); 
 
-                let remainingTime = 102; // Total tid i sekunder (1:42 = 102 sekunder)
+                let remainingTime = 106; // Total tid i sekunder (1:46 = 106 sekunder)
 
                 // Starta nedräkningen
                 const countdownInterval = setInterval(() => {
@@ -39,8 +39,8 @@ body.addEventListener("keydown", function(e) {
                     p.innerHTML = `<p>Spelar upp ljud: ${minutes}:${seconds.toString().padStart(2, '0')}</p>`;
 
                     // Stoppa nedräkningen när tiden är slut
-                    if (remainingTime <= 32) {
-                        p.innerHTML = `<p>Ta med boken och hitta nycklen <br></br> 55°36'24.5"N 12°59'35.8"E </p>`;
+                    if (remainingTime <= 105) {
+                        p.innerHTML = `<p>Fotografera sida 7, 13, 23, 30 <br></br> Hitta nycklen <br></br>?</p>`;
                     } else if(remainingTime === 0) {
                         clearInterval(countdownInterval);
                     }
@@ -53,7 +53,7 @@ body.addEventListener("keydown", function(e) {
 
                 
                 
-            } else if(text === "Nå mig via telefon") {
+            } else if(text === "nå mig via telefon") {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
@@ -76,7 +76,7 @@ body.addEventListener("keydown", function(e) {
                     window.location.href = "https://webshare.mah.se/aq2168/telefon/";
                 }, 15000);
 
-            } else if(text === "Återställ") {
+            } else if(text === "återställ") {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
