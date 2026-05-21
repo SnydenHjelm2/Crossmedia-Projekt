@@ -37,7 +37,7 @@ class NotisPopUp extends HTMLElement {
                     line-height: 150%;
                 }
                 img {
-                    width: 60px;
+                    width: 135px;
                 }
                 h5 {
                     font-style: italic;
