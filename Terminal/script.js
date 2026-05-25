@@ -21,7 +21,7 @@ body.addEventListener("keydown", function(e) {
                     top: 0,
                     behavior: "smooth" // Gör scrollningen mjuk (valfritt)
                 });
-                const sound = new Audio(`Sequence01_1.mp3`); 
+                const sound = new Audio(`Station2.mp3`); 
                 sound.currentTime = 0;
                 sound.play(); 
 
@@ -40,7 +40,7 @@ body.addEventListener("keydown", function(e) {
 
                     // Stoppa nedräkningen när tiden är slut
                     if (remainingTime <= 10) {
-                        p.innerHTML = `<p>Fotografera sida 7, 13, 23, 30 <br></br> Hitta nycklen <br></br>55° 36' 24.084"N 12° 59' 37.1034"E</p>`;
+                        p.innerHTML = `<p>Fotografera sida 7, 13, 23, 30 <br></br> Hitta nycklen <br></br>55°36'24.084"N 12°59' 37.1034"E</p>`;
                     } else if(remainingTime === 0) {
                         clearInterval(countdownInterval);
                     }

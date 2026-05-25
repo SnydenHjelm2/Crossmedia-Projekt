@@ -4,7 +4,7 @@ const callButton = document.getElementById('call');
 const backButton = document.getElementById('back');
 
 const keyPressSound = new Audio(`phone-keypad-button-dial-ni-sound-1-1-00-00.mp3`); 
-const callSound = new Audio(`TelefonsamtalMP3.mp3`)
+const callSound = new Audio(`Telefonsamtal.mp3`)
 
 
 keys.forEach(key => {
