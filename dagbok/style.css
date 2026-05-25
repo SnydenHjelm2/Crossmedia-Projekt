@@ -1,0 +1,36 @@
+@font-face {
+    font-family: bread;
+    src: url(Schoolbell-Regular.ttf);
+}
+
+body {
+    background-color: #F5F2E8;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    padding: 5px;
+}
+
+h2 {
+    font-family: bread;
+}
+
+main {
+    width: 100dvw;
+    height: 500px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+main img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
